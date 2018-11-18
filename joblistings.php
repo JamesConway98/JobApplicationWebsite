@@ -13,14 +13,15 @@ require 'connectdb.php';
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
-    if(isset($_GET["page"]) && !($_GET["page"] < 1) ){
+    if(isset($_GET["page"]) && !($_GET["page"] < 1)){
         $page = $_GET["page"];
     }else{
         $page = 1;
     }
-    $start_from = ($page-1) * 20;
+    $page_size = 15;
+    $start_from = ($page-1) * $page_size;
 
-    $sql = 'SELECT Job.ID, Job.Title, Job.Company, Job.Deadline, Job.Location, `occ`.`Occupation`, `typ`.`Type` FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` ORDER BY Title';
+    $sql = 'SELECT Job.ID, Job.Title, Job.Company, Job.Deadline, Job.Location, `occ`.`Occupation`, `typ`.`Type` FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` ORDER BY Deadline ASC, Title ASC LIMIT '.$start_from.', '.$page_size;
     $jobs = $conn->query($sql);
     if (isset($jobs->num_rows) && $jobs->num_rows > 0) {
         echo '<table>';
@@ -33,7 +34,9 @@ if ($conn->connect_error) {
         if($page-1 > 0){
             echo "<a href='joblistings.php?page=".($page-1)."'><</a>  ";
         }
-        if($page+1 <= ceil($jobs->num_rows/12)){
+        $sql = "SELECT COUNT(ID) as `count` FROM `Job`";
+        $num_rows = $conn->query($sql)->fetch_assoc()["count"];
+        if($page+1 <= ceil($num_rows/$page_size)){
             echo "<a href='joblistings.php?page=".($page+1)."'>></a>";
         }
         echo "</div>";
