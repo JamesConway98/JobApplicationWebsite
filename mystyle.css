@@ -1,0 +1,68 @@
+html{
+    background-color: palegoldenrod;
+}
+
+header {
+    background-color: green;
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: springgreen;
+    border-radius: 0.5em;
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 50%;
+    text-align: left;
+}
+
+header h1{
+    background-color: greenyellow;
+    text-align: center;
+}
+
+header nav {
+    background-color: greenyellow;
+    padding: 1em;
+    border-radius: 0.25em;
+}
+
+header nav a{
+    border-width: 0.2em;
+    border-style: solid;
+    padding: 0.5em;
+    border-color: black;
+    background-color: ghostwhite;
+    text-decoration: none;
+}
+
+body {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:1em;
+    margin-bottom:1em;
+    border-width: 0.2em;
+    border-color: darkred;
+    border-style: solid;
+    background-color: whitesmoke;
+    max-width: 50%;
+}
+
+.col{
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 0.2em;
+    border-color: darkred;
+    border-style: solid;
+    border-radius: 0.5em;
+    background-color: lightcyan;
+    max-width: 60%;
+}
+
+.col h2{
+    background-color: lightskyblue;
+    text-align: center;
+    padding: 1em;
+}
