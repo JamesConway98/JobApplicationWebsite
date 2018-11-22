@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jobs Site</title>
+    <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
 </head>
 
 <?php
@@ -80,6 +81,7 @@ if($loginOK){
         <h1>Logged in</h1>
         <p>Welcome Back <?php echo $username  ?></p>
         <p><a href = "myaccount.php">Go to My Account</a></p>
+        <p><a href = "joblistings.php">Go to All Jobs</a></p>
     </div>
 
     <?php
@@ -104,6 +106,12 @@ if($loginOK){
     <div>
         <form action = "resetpassword.php" name =  "reset">
             <input type = "submit" value ="Reset Password"/>
+        </form>
+    </div>
+
+    <div>
+        <form action = "createaccount.php" name =  "create">
+            <input type = "submit" value ="Create Account"/>
         </form>
     </div>
 
