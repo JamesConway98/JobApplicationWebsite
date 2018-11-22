@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="style.css" rel="stylesheet">
     <title>Job adding in HTML and PHP - Add job</title>
-
+    <div class="title">
+        <h1>Add a Job<h1/>
+    </div>
 </head>
 <body>
-<div class="">
-    <h2>Compaines/Employees - Add job</h2>
-</div>
 
 <form method="post" action="addJob.php">
 
-
-    <div class="">
+<div class="input-group">
         <label>Job Title</label>
-        <input type="text" name="job_title" >
-    </div>
-    <div class="">
+        <input type="text" name="job_title"><br>
+
+
         <label>Company</label>
-        <input type="text" name="company_name" >
-    </div>
-    <div class="">
+        <input type="text" name="company_name"><br>
+
+
         <label>Description</label>
-        <input type="text" name="job_description" >
-    </div>
-    <div class="">
+        <input type="text" name="job_description"><br>
+
+
         <label>Deadline</label>
-        <input type="date" name="deadline">
-    </div>
-    <div class="">
+        <input type="date" name="deadline"><br>
+
+
         <label>Location</label>
-        <input type="text" name="location">
-    </div>
-    <div class="">
+        <input type="text" name="location"><br>
+
+
         <label>Occupation Id</label>
-        <input type="number" name="occupationID">
-    </div>
-    <div class="">
+        <input type="number" name="occupationID"><br>
+
+
         <label>Type Id</label>
-        <input type="number" name="typeID">
+        <input type="number" name="typeID"><br>
     </div>
-    <div class="">
-        <button type="submit" name="add_job"> + Add Job to jobs lists</button>
-    </div>
+
+        <button class="btn" type="submit" name="add_job"> + Add Job </button>
+        <a href="">Job Lists</a>
+        <a href="login.php">Sign Out</a>
+
+
 </form>
 </body>
 </html>
@@ -54,6 +56,8 @@
 // call the register() function if register_btn is clicked
 if (isset($_POST['add_job'])) {
     addJob();
+
+
 }
 
 // REGISTER USER
@@ -89,29 +93,29 @@ function addJob(){
             echo "New job created successfully";
         }else {
 
+            echo "<small>";
             if (empty($title)) {
-                echo "<br>Error! Job title required";
+                echo "<br><div class='error'>Error! Job title required</div>";
             }
             if (empty($company)) {
-                echo "<br>Error! Company name required";
+                echo "<br><div class='error'>Error! Company name required</div>";
             }
             if (empty($description)) {
-                echo "<br>Error! Job description required";
+                echo "<br><div class='error'>Error! Job description required</div>";
             }
             if (empty($deadline)) {
-                echo "<br>Error! Application deadline required";
+                echo "<br><div class='error'>Error! Application deadline required</div>";
             }
             if (empty($occupation_id)) {
-                echo "<br>Error! Occupation id required";
+                echo "<br><div class='error'>Error! Occupation id required</div>";
             }
             if (empty($type_id)) {
-                echo "<br>Error! Type id required";
+                echo "<br><div class='error'>Error! Type id required</div>";
             }
+            echo "</small>";
         }
 
     $db->close();
-
-
 
 }
 ?>
