@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name + "viewport" content = "width=device-width, initial-scale = 1.0">
     <title>PHP Samples</title>
+    <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
     <script>
         function checkform(){
 
@@ -87,10 +88,12 @@ if($result->num_rows>0) {
 
 if($submitbutton && $duplicateEmail){
     echo "<p>This email already has an account</p> <p>Log in to continue</p>";
-}else {
+}else if ($submitbutton){
     $sql = "INSERT INTO `User` (`Username`, `Password`, `Email`, `ResetCode`) VALUES ('$name', '$password', '$email', '0')";
     $result = $conn->query($sql);
-    echo "<p>You have created an account, please login to continue</p>";
+    if($createOK) {
+        echo "<p>You have created an account, please login to continue</p>";
+    }
 }
 
 if(!$createOK) {
@@ -98,7 +101,7 @@ if(!$createOK) {
 
     <div>
         <form name="create" method="post" onsubmit="return checkform();">
-            <p>Please enter details to continue</p>
+            <p>Please enter details to create an account</p>
             <p>Name:<input type="text" name="name"/></p>
             <p>Email:<input type="text" name="email"/></p>
             <p>Password: <input type="password" name="password"/></p>
