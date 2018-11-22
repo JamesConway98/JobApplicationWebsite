@@ -43,7 +43,7 @@ if (isset($job)) {
         . '<tr><td>Occupation:</td><td>' . $job["Occupation"] . '</td></tr>'
         . '<tr><td>Type:</td><td>' . $job["Type"] . '</td></tr>'
         . '<tr><td colspan="2">'
-        . '<button name="apply" type="submit" align="center" value="' . $job["ID"] . '">Apply</button>'
+        . '<button name="apply" type="submit" align="center" value="' . $_GET["more"] . '">Apply</button>'
         . '</td></tr>'
         . '</table>'
         . '</form>';

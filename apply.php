@@ -12,6 +12,7 @@ $_SESSION['location'] = "";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
 
     <script>
         function validateEmail(text) {
