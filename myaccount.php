@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jobs Site</title>
+    <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
 </head>
 <body>
 
@@ -71,6 +72,12 @@ echo "</table>";
 <div>
     <form name="logout" method="post">
         <input type="submit" name="logoutsubmit" value="Logout"/>
+    </form>
+</div>
+
+<div>
+    <form action = "joblistings.php" name="alljobs" method="post">
+        <input type="submit" name="alljob" value="All Jobs"/>
     </form>
 </div>
 
