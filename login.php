@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -98,7 +97,7 @@ if($loginOK){
     </div>
 
     <div>
-        <form action = "listart.php" name =  "login">
+        <form action = "joblistings.php" name =  "login">
             <input type = "submit" value ="Continue Without Logging in"/>
         </form>
     </div>
