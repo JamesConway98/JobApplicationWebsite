@@ -12,6 +12,7 @@
     ?>
 </header>
 <body>
+<div class="col">
 <?php
 //require 'navbar.php';
 require 'connectdb.php';
@@ -50,5 +51,6 @@ if ($conn->connect_error) {
     }
 }
 ?>
+</div>
 </body>
 </html>

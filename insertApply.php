@@ -14,7 +14,14 @@
     <title>Job application confirmation</title>
 
 </head>
-
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
+<body>
+<div class="col">
 <h2>Application confirmation</h2>
 <?php
 function upload()
@@ -84,6 +91,6 @@ if(!isset($_FILES['userfile'])) {
 }
 
 ?>
-
+</div>
 </body>
 </html>

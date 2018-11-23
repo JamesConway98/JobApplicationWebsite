@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jobs Site</title>
+    <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
 </head>
 
 <?php
@@ -94,9 +95,15 @@ if($resetOK){
 }
 
 ?>
-
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-<h1>Reset Password</h1>
+<div class="col">
+<h2>Reset Password</h2>
 
 <?php
 if($resetOK){
@@ -140,7 +147,6 @@ if($resetOK){
     <?php
 }
 ?>
-
+</div>
 </body>
-
 </html>

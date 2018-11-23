@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="style.css" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
     <title>Job adding in HTML and PHP - Add job</title>
-    <div class="title">
-        <h1>Add a Job<h1/>
-    </div>
 </head>
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-
+<div class="col">
+    <h2>Add a Job</h2>
 <form method="post" action="addJob.php">
 
 <div class="input-group">
@@ -46,6 +50,7 @@
 
 
 </form>
+</div>
 </body>
 </html>
 
@@ -119,7 +124,3 @@ function addJob(){
 
 }
 ?>
-
-<body>
-
-</body>

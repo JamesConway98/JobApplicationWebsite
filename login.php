@@ -68,10 +68,14 @@ if($loginOK){
 }
 
 ?>
-
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-<h1>Job Site</h1>
-
+<div class="col">
 <?php
 if($loginOK){
     ?>
@@ -117,7 +121,7 @@ if($loginOK){
     <?php
 }
 ?>
-
+</div>
 </body>
 
 </html>

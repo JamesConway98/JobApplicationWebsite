@@ -4,8 +4,14 @@
     <title>Jobs Site</title>
     <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
 </head>
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-
+<div class="col">
 <?php
 
 session_start();
@@ -47,10 +53,10 @@ if($result->num_rows>0){
 ?>
 
 <div>
-    <h1> <?php echo $username; ?>'s Account</h1>
+    <h2> <?php echo $username; ?>'s Account</h2>
 </div>
 
-<h2>Your Saved Jobs</h2>
+<h3>Your Saved Jobs</h3>
 
 <?php
 
@@ -80,8 +86,6 @@ echo "</table>";
         <input type="submit" name="alljob" value="All Jobs"/>
     </form>
 </div>
-
+</div>
 </body>
-
-
 </html>

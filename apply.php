@@ -90,8 +90,14 @@ $_SESSION['location'] = "";
         ?>
     </title>
 </head>
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-
+<div class ="col">
 <h2>Apply for a job</h2>
 
 <div>
@@ -117,6 +123,7 @@ $_SESSION['location'] = "";
         </p>
 
     </form>
+</div>
 </div>
 </body>
 </html>

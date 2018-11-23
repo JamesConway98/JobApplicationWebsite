@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name + "viewport" content = "width=device-width, initial-scale = 1.0">
-    <title>PHP Samples</title>
+    <title>Create Account</title>
     <link rel = "stylesheet" type = "text/css" href = "mystyle.css"/>
     <script>
         function checkform(){
@@ -36,8 +36,14 @@
 
     </script>
 </head>
+<header>
+    <h1>Jobs</h1>
+    <?php
+    require 'navbar.php';
+    ?>
+</header>
 <body>
-
+<div class="col">
 <?php
 
 function safePost($name){
@@ -121,5 +127,6 @@ else {
     <?php
 }
 ?>
+</div>
 </body>
 </html>
