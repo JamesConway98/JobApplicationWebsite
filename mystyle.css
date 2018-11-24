@@ -1,41 +1,52 @@
 html{
-    background-color: palegoldenrod;
+    background-color: #2EC0F9;
+}
+
+* {
+    font-size: 100%;
+    font-family: Helvetica;
+    color: white;
 }
 
 header {
-    background-color: green;
-    border-width: 0.2em;
-    border-style: solid;
-    border-color: springgreen;
-    border-radius: 0.5em;
+    border-radius: 20px;
     margin-left: auto;
     margin-right:auto;
     max-width: 50%;
-    text-align: left;
 }
 
+
 header h1{
-    background-color: greenyellow;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: #67AAF9;
+    padding: 20px;
     text-align: center;
+    font-size: 400%;
+    margin: 0;
+    border: 0.1em solid #006DAA;
+    border-radius: 0.25em;
+
 }
 
 header nav {
-    background-color: greenyellow;
     padding: 1em;
     border-radius: 0.25em;
+    margin: 0;
 }
 
 header nav a{
-    border-width: 0.2em;
-    border-style: solid;
+    border: 0.2em solid #006DAA;
     padding: 0.5em;
-    border-color: black;
-    background-color: ghostwhite;
+    background-color: #67AAF9;
     text-decoration: none;
 }
 
 body {
     text-align: center;
+}
+
+div {
+    padding: 10px;
 }
 
 table {
@@ -44,9 +55,9 @@ table {
     margin-top:1em;
     margin-bottom:1em;
     border-width: 0.2em;
-    border-color: darkred;
+    border-color: #006DAA;
     border-style: solid;
-    background-color: whitesmoke;
+    background-color: #306BAC;
     max-width: 50%;
 }
 
@@ -54,15 +65,38 @@ table {
     margin-left: auto;
     margin-right: auto;
     border-width: 0.2em;
-    border-color: darkred;
+    border-color: #006DAA;
     border-style: solid;
     border-radius: 0.5em;
-    background-color: lightcyan;
+    background-color: #67AAF9;
     max-width: 60%;
 }
 
 .col h2{
-    background-color: lightskyblue;
+    font-size: 200%;
     text-align: center;
-    padding: 1em;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+button{
+    background-color: #67AAF9;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #006DAA;
+    padding: 10px 24px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    background-color: #67AAF9;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #006DAA;
+    padding: 10px 24px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
 }
