@@ -12,9 +12,13 @@ if ($conn->connect_error) {
     $start_from = ($page - 1) * $page_size;
 
     $condition = "";
-    if(isset($_GET["search"])){
-        $condition = " WHERE Job.Title LIKE \"%" . $_GET["search"] . "%\"";
-    }
+    if (!isset($_GET["exp"]) || $_GET["exp"] === "true")
+        $condition = " WHERE Job.Deadline >= " . date("Ymd");
+    if (isset($_GET["search"]))
+        if(strlen($condition) > 0)
+            $condition .= " AND Job.Title LIKE \"%" . $_GET["search"] . "%\"";
+        else
+            $condition = " WHERE Job.Title LIKE \"%" . $_GET["search"] . "%\"";
 
     $sql = 'SELECT Job.ID, Job.Title, Job.Company, Job.Deadline, Job.Location, `occ`.`Occupation`, `typ`.`Type` FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` ' . $condition . ' ORDER BY Deadline ASC, Title ASC, Job.ID ASC LIMIT ' . $start_from . ', ' . $page_size;
     $jobs = $conn->query($sql);

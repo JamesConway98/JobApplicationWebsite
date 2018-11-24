@@ -14,10 +14,11 @@
 <body>
 <div class="col">
     <input type="text" id="searchBox" onkeyup="loadDoc('')" placeholder="Search for job.." title="Type in a job">
+    <input type="checkbox" id="expired" value="exp" checked> don't show expired listings<br>
     <div id="table">
-<?php
-require 'jobtable.php';
-?>
+        <?php
+        require 'jobtable.php';
+        ?>
     </div>
 </div>
 
@@ -32,16 +33,17 @@ require 'jobtable.php';
             // code for IE6, IE5
             xhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
                 document.getElementById("table").innerHTML = this.responseText;
             }
         };
-        if(input.length !== 0)
+        var exp = document.getElementById("expired").checked.toString();
+        if (input.length !== 0)
             input = "&search=" + input;
-        if(page.length !== 0)
+        if (page.length !== 0)
             page = "&page=" + page;
-        xhttp.open("GET", "jobtable.php?t=0" + input + page, true);
+        xhttp.open("GET", "jobtable.php?exp=" + exp + input + page, true);
         xhttp.send();
     }
 </script>
