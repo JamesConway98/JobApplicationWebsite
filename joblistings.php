@@ -13,7 +13,7 @@
 </header>
 <body>
 <div class="col">
-    <input type="text" id="searchBox" onkeyup="loadDoc()" placeholder="Search for job.." title="Type in a job">
+    <input type="text" id="searchBox" onkeyup="loadDoc('')" placeholder="Search for job.." title="Type in a job">
     <div id="table">
 <?php
 require 'jobtable.php';
@@ -22,7 +22,7 @@ require 'jobtable.php';
 </div>
 
 <script>
-    function loadDoc() {
+    function loadDoc(page) {
         var xhttp;
         var input = document.getElementById("searchBox").value.trim();
         if (window.XMLHttpRequest) {
@@ -38,9 +38,10 @@ require 'jobtable.php';
             }
         };
         if(input.length !== 0)
-            xhttp.open("GET", "jobtable.php?search=" + input, true);
-        else
-            xhttp.open("GET", "jobtable.php", true);
+            input = "&search=" + input;
+        if(page.length !== 0)
+            page = "&page=" + page;
+        xhttp.open("GET", "jobtable.php?t=0" + input + page, true);
         xhttp.send();
     }
 </script>

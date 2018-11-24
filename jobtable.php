@@ -27,12 +27,12 @@ if ($conn->connect_error) {
         echo "</table>";
         echo "<div>";
         if ($page - 1 > 0) {
-            echo "<a href='joblistings.php?page=" . ($page - 1) . "'><</a>  ";
+            echo "<button type='button' onclick='loadDoc(" . ($page - 1) . ")'><</button>  ";
         }
         $sql = "SELECT COUNT(ID) as `count` FROM `Job` " . $condition;
         $num_rows = $conn->query($sql)->fetch_assoc()["count"];
         if ($page + 1 <= ceil($num_rows / $page_size)) {
-            echo "<a href='joblistings.php?page=" . ($page + 1) . "'>></a>";
+            echo "<button type='button' onclick='loadDoc(" . ($page + 1) . ")'>></button>";
         }
         echo "</div>";
     } else {
