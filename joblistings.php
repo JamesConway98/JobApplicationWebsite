@@ -15,6 +15,7 @@
 <div class="col">
     <input type="text" id="searchBox" onkeyup="loadDoc('')" placeholder="Search for job.." title="Type in a job">
     <input type="checkbox" id="expired" onclick="loadDoc('')" checked> don't show expired listings<br>
+    <div id = extraSpace>
     Occupation:
     <select id="occ" onchange="loadDoc('')">
         <option value="">Select</option>
@@ -79,6 +80,7 @@
         }
         ?>
     </select>
+    </div>
     <div id="table">
         <?php
         require 'jobtable.php';
