@@ -43,11 +43,12 @@ if ($conn->connect_error) {
 
     $sql = 'SELECT Job.ID, Job.Title, Job.Company, Job.Deadline, Job.Location, `occ`.`Occupation`, `typ`.`Type` FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` ' . $condition . ' ORDER BY Deadline ASC, Title ASC, Job.ID ASC LIMIT ' . $start_from . ', ' . $page_size;
     $jobs = $conn->query($sql);
-    if (isset($jobs->num_rows) && $jobs->num_rows > 0) {$num_rows = $jobs->num_rows;
-        echo '<table id="table">';
+    if (isset($jobs->num_rows) && $jobs->num_rows > 0) {
+        $num_rows = $jobs->num_rows;
+        echo '<table id="jobTable">';
         echo "<tr><th>Title</th><th>Company</th><th>Deadline</th><th>Location</th><th>Occupation</th><th>Type</th><th></th></tr>";
         while ($row = $jobs->fetch_assoc()) {
-            echo "<tr><td>" . $row["Title"] . "</td><td>" . $row["Company"] . "</td><td>" . $row["Deadline"] . "</td><td>" . $row["Location"] . "</td><td>" . $row["Occupation"] . "</td><td>" . $row["Type"] . "</td><td><form action='details.php' method='get'><button name='more' type='submit' value='" . $row["ID"] . "'>+</button> </form></td></tr>";
+            echo "<tr id='" . $row["ID"] . "' onclick='loadDetails(" . $row["ID"] . ")'><td>" . $row["Title"] . "</td><td>" . $row["Company"] . "</td><td>" . $row["Deadline"] . "</td><td>" . $row["Location"] . "</td><td>" . $row["Occupation"] . "</td><td>" . $row["Type"] . "</td><td><form action='details.php' method='get'><button name='more' type='submit' value='" . $row["ID"] . "'>+</button> </form></td></tr>";
         }
         echo "</table>";
         echo "<div>";

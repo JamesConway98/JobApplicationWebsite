@@ -106,7 +106,7 @@
         }
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("table").innerHTML = this.responseText;
+                document.getElementById("jobTable").innerHTML = this.responseText;
             }
         };
         if (input.length !== 0)
@@ -124,6 +124,45 @@
 
         xhttp.open("GET", "jobtable.php?exp=" + exp + args, true);
         xhttp.send();
+    }
+
+    function unloadDetails() {
+        var table = document.getElementById("jobTable");
+        var row = document.getElementById("newRow");
+        if (row !== null)
+            table.deleteRow(row.rowIndex);
+    }
+
+    function loadDetails(id) {
+        var a = document.getElementById(id);
+        var b = document.getElementById("newRow");
+        if (b == null || a.rowIndex !== b.rowIndex - 1) {
+            unloadDetails();
+            var row = document.getElementById(id).rowIndex;
+            var table = document.getElementById("jobTable");
+            var newRow = table.insertRow(row + 1);
+            newRow.id = "newRow";
+            var cell = newRow.insertCell(0);
+            cell.id = "miniDetails";
+            cell.setAttribute("colspan", table.rows[0].cells.length);
+            var xhttp;
+            if (window.XMLHttpRequest) {
+                // code for modern browsers
+                xhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("miniDetails").innerHTML = this.responseText;
+                }
+            };
+
+            xhttp.open("GET", "miniDetails.php?more=" + id, true);
+            xhttp.send();
+        } else
+            unloadDetails();
     }
 </script>
 
