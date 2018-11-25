@@ -96,7 +96,7 @@ if($resetOK){
 
 ?>
 <header>
-    <h1>Jobs</h1>
+    <img src="Files/Logo.png" alt="Logo"  width = '200px' height = '200px'>
     <?php
     require 'navbar.php';
     ?>

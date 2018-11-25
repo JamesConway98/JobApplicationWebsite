@@ -1,5 +1,5 @@
 html{
-    background-color: #2EC0F9;
+    background-image: linear-gradient(to bottom right, #2EC0F9, #cce1f7);
 }
 
 * {
@@ -22,7 +22,7 @@ p{
 
 header h1{
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    background-color: #67AAF9;
+    background-image: linear-gradient(to bottom right, #006DAA, #67AAF9);
     padding: 20px;
     text-align: center;
     font-size: 400%;
@@ -39,13 +39,13 @@ header nav {
 }
 
 header nav a:hover {
-    background-color: #006DAA;
+    background-image: linear-gradient(to bottom right, #67AAF9, #006DAA);
 }
 
 header nav a{
     border: 0.2em solid #006DAA;
     padding: 0.5em;
-    background-color: #67AAF9;
+    background-image: linear-gradient(to bottom right, #006DAA, #67AAF9);
     text-decoration: none;
 }
 
@@ -65,8 +65,7 @@ div {
     margin-left: auto;
     margin-right: auto;
     border: 0.2em solid #006DAA;
-    border-radius: 0.5em;
-    background-color: #67AAF9;
+    background-image: linear-gradient(to bottom right, #006DAA, #67AAF9);
     max-width: 60%;
 }
 
