@@ -5,7 +5,7 @@
     <title>Job adding in HTML and PHP - Add job</title>
 </head>
 <header>
-    <h1>Jobs</h1>
+    <img src="Files/Logo.png" alt="Logo"  width = '200px' height = '200px'>
     <?php
     require 'navbar.php';
     ?>
