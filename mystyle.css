@@ -122,6 +122,11 @@ select{
     color: #006DAA;
 }
 
+select option {
+    color: #006DAA;
+}
+
+
 #jobInfo{
     font-size: 140%;
 }
