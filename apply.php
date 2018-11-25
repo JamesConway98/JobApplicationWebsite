@@ -8,6 +8,10 @@
 $_SESSION['occupation'] = "";
 $_SESSION['company'] = "";
 $_SESSION['location'] = "";
+
+
+$apply = $_SESSION['key'];
+
 ?>
 <html lang="en">
 <head>
@@ -63,11 +67,12 @@ $_SESSION['location'] = "";
     $pass = "soo7ZaiLaec8";
     $dbname = "cs312groupt";
     $conn = new mysqli($host, $user, $pass, $dbname);
-    if(!isset($_GET["apply"]) || $conn->connect_error){
+    /*if(!isset($_GET["apply"]) || $conn->connect_error){
         header("Location: joblistings.php");
         die();
-    }
-    $sql = 'SELECT * FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` WHERE ' . $_GET["apply"] . '=`Job`.`ID`';
+
+    }*/
+    $sql = 'SELECT * FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` WHERE ' . $apply . '=`Job`.`ID`';
     $job = $conn->query($sql);
     if(isset($job->num_rows) && $job->num_rows > 0){
         $job = $job->fetch_assoc();
@@ -120,7 +125,7 @@ $_SESSION['location'] = "";
             <br>
             <textarea name="message" rows="10" cols="30"></textarea>
             <br>
-            <button name = "confirm" type="submit" value=<?php $_GET["apply"]?>>Continue</button>
+            <button name = "confirm" type="submit" value=<?php echo $apply?>>Continue</button>
             <button type="button" onclick="history.back();">Back</button>
         </p>
         </div>

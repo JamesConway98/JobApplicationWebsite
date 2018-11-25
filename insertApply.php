@@ -81,7 +81,10 @@ if(!isset($_FILES['userfile'])) {
     ?>
     <p><?php echo "Hello ".$_POST["name"].", "?></p>
     <p><?php echo "We have recieved your application for the  ".$_SESSION['occupation']." position at ".$_SESSION['company']." in ".$_SESSION['location']."."?></p>
-    <p><?php echo "You have also received a confirmation email.//TO DO//"?></p>
+    <p><?php echo "You have also received a confirmation email."?></p>
+    <?php
+    $message = "This is a confirmation regarding your recent appliaction for the  ".$_SESSION['occupation']." position at ".$_SESSION['company']." in ".$_SESSION['location'].".";
+    mail($_POST['email'], "Application confriamtion", $message); ?>
     <form action="joblistings.php" method="get">
 
         <button name="subject" type="submit" value="login">Back to home page</button>

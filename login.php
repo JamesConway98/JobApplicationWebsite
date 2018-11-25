@@ -9,6 +9,8 @@
 
 session_start();
 
+
+
 function safePost($name){
     if(isset($_POST[$name])){
         return strip_tags($_POST[$name]);
@@ -101,10 +103,23 @@ if($loginOK){
     </div>
 
     <div>
+    <?php
+    if(isset($_SESSION['details'])){
+        ?>
+        <form action = "apply.php" name =  "login">
+            <?php
+    }
+        else{
+            ?>
+            <form action = "joblistings.php" name =  "login">
+            <?php
+        }
+        ?>
         <form action = "joblistings.php" name =  "login">
             <input type = "submit" value ="Continue Without Logging in"/>
         </form>
     </div>
+
 
     <div>
         <form action = "resetpassword.php" name =  "reset">

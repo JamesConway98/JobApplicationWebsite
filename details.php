@@ -1,4 +1,8 @@
 <?php
+session_start();
+$_SESSION['key'] = $_GET["more"];
+$_SESSION['details'] = "";
+
 require 'connectdb.php';
 if (!isset($_GET["more"]) || $conn->connect_error) {
     header("Location: joblistings.php");
@@ -40,8 +44,16 @@ if (isset($job)) {
     echo '<div class="col">';
     echo "<h2>" . $job["Title"] . "</h2>";
     echo $job["Description"];
-    echo '<form action="apply.php" method="get">'
-        . '<table>'
+    if(isset($_SESSION["sessionuser"])){
+
+        echo '<form action="apply.php" method="get">';
+    }
+    else{
+
+        echo '<form action="login.php" method="get">';
+        $_SESSION['details'] = $_SERVER['REQUEST_URI'];
+    }
+        echo '<table>'
         . '<tr><td>Company:</td><td>' . $job["Company"] . '</td></tr>'
         . '<tr><td>Location:</td><td>' . $job["Location"] . '</td></tr>'
         . '<tr><td>Deadline:</td><td>' . $job["Deadline"] . '</td></tr>'
