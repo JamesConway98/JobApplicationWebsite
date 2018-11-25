@@ -15,6 +15,10 @@ header {
     max-width: 50%;
 }
 
+p{
+    margin: 2px;
+}
+
 
 header h1{
     font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -34,6 +38,10 @@ header nav {
     margin: 0;
 }
 
+header nav a:hover {
+    background-color: #006DAA;
+}
+
 header nav a{
     border: 0.2em solid #006DAA;
     padding: 0.5em;
@@ -46,36 +54,33 @@ body {
 }
 
 div {
-    padding: 10px;
+    padding: 5px;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:1em;
-    margin-bottom:1em;
-    border-width: 0.2em;
-    border-color: #006DAA;
-    border-style: solid;
-    background-color: #306BAC;
-    max-width: 50%;
+#extraSpace{
+    padding: 25px;
 }
 
 .col{
     margin-left: auto;
     margin-right: auto;
-    border-width: 0.2em;
-    border-color: #006DAA;
-    border-style: solid;
+    border: 0.2em solid #006DAA;
     border-radius: 0.5em;
     background-color: #67AAF9;
     max-width: 60%;
 }
 
-.col h2{
+table {
+    margin: 1em auto;
+    border: 0.2em solid #006DAA;
+    background-color: #306BAC;
+    max-width: 50%;
+}
+
+h2{
     font-size: 200%;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     text-decoration: underline;
 }
 
@@ -84,10 +89,14 @@ button{
     border-style: solid;
     border-width: 2px;
     border-color: #006DAA;
-    padding: 10px 24px;
+    padding: 5px 24px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
+}
+
+button:hover{
+    background-color: #006DAA;
 }
 
 input[type=submit] {
@@ -95,8 +104,24 @@ input[type=submit] {
     border-style: solid;
     border-width: 2px;
     border-color: #006DAA;
-    padding: 10px 24px;
+    padding: 5px 24px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
+}
+
+input[type=submit]:hover{
+    background-color: #006DAA;
+}
+
+input[type=text] {
+    color: #006DAA;
+}
+
+select{
+    color: #006DAA;
+}
+
+#jobInfo{
+    font-size: 140%;
 }
