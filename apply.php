@@ -103,10 +103,12 @@ $_SESSION['location'] = "";
 <div>
     <form action="insertApply.php" onsubmit="return validateForm()" method="post" name="myform" enctype="multipart/form-data">
 
-
+    <div id = jobInfo>
         <p><?php echo $job["Occupation"];?></p>
         <p><?php echo $job["Company"];?></p>
         <p><?php echo $job["Location"];?></p>
+    </div>
+        <div id = extraSpace>
         <p>
             Name: <input type="text" name="name"/><br/>
             Email: <input type="text" name="email"/><br/>
@@ -121,6 +123,7 @@ $_SESSION['location'] = "";
             <button name = "confirm" type="submit" value=<?php $_GET["apply"]?>>Continue</button>
             <button type="button" onclick="history.back();">Back</button>
         </p>
+        </div>
 
     </form>
 </div>
