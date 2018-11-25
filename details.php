@@ -32,6 +32,11 @@ if (isset($job->num_rows) && $job->num_rows > 0) {
 <body>
 <?php
 if (isset($job)) {
+    $disabled = "";
+    if (strtotime($job["Deadline"]) - strtotime(date("Ymd")) < 0) {
+        $disabled = "disabled";
+    }
+
     echo '<div class="col">';
     echo "<h2>" . $job["Title"] . "</h2>";
     echo $job["Description"];
@@ -43,7 +48,7 @@ if (isset($job)) {
         . '<tr><td>Occupation:</td><td>' . $job["Occupation"] . '</td></tr>'
         . '<tr><td>Type:</td><td>' . $job["Type"] . '</td></tr>'
         . '<tr><td colspan="2">'
-        . '<button name="apply" type="submit" align="center" value="' . $_GET["more"] . '">Apply</button>'
+        . '<button name="apply" type="submit" align="center" value="' . $_GET["more"] . '" ' . $disabled . '>Apply</button>'
         . '</td></tr>'
         . '</table>'
         . '</form>';

@@ -106,7 +106,7 @@
         }
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("jobTable").innerHTML = this.responseText;
+                document.getElementById("table").innerHTML = this.responseText;
             }
         };
         if (input.length !== 0)
