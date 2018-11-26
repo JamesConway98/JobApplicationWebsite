@@ -46,7 +46,11 @@ if($conn->connect_error){
 $sql = "SELECT * FROM `User`";
 $result = $conn->query($sql);
 
-$loginOK = false;
+if(isset($_SESSION['sessionuser'])) {
+    $loginOK = true;
+}else{
+    $loginOK = false;
+}
 
 if($result->num_rows>0){
 
@@ -56,6 +60,7 @@ if($result->num_rows>0){
             if($row["Password"] == $password){
                 $loginOK = true;
                 $username = $row["Username"];
+                $_SESSION["sessionuserid"] = $row["ID"];
             }
             if($sessionuser == $row["Email"]){
                 $loginOK = true;

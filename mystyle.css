@@ -74,6 +74,12 @@ table {
     border: 0.2em solid #006DAA;
     background-color: #306BAC;
     max-width: 50%;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    margin: 1em auto;
 }
 
 h2{
@@ -114,6 +120,10 @@ input[type=submit]:hover{
 }
 
 input[type=text] {
+    color: #006DAA;
+}
+
+input[type=password] {
     color: #006DAA;
 }
 

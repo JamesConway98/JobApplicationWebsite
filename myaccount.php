@@ -23,6 +23,7 @@ if(isset($_SESSION["sessionuser"]) && !(isset($_POST["logoutsubmit"]))){
 }else{
     $sessionuser = "";
     unset($_SESSION['sessionuser']);
+    unset($_SESSION['sessionuserid']);
     $loggedin = false;
     header("Location: login.php");
 }
@@ -60,19 +61,23 @@ if($result->num_rows>0){
 
 <?php
 
-$sql = "SELECT Job.ID, Job.Title FROM Job INNER JOIN SavedJobs ON Job.ID = SavedJobs.JobID WHERE SavedJobs.UserID = '$userID'";
+$sql = "SELECT Job.ID, Job.Company, Job.Title, Job.Location, Job.Deadline FROM Job INNER JOIN SavedJobs ON Job.ID = SavedJobs.JobID WHERE SavedJobs.UserID = '$userID'";
 $result = $conn->query($sql);
 
-echo"<table> <tr> <th>Job Id</th> <th>Title</th> </tr>";
+echo"<form action = 'details.php' name=\"more\" method=\"get\">";
+echo "<table cellspacing=\"15\"> <tr> <th>Company</th> <th>Title</th> <th>Location</th> <th>Deadline</th> <th>Apply</th></tr>";
 
 if($result->num_rows>0){
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row["ID"] . "</td>";
-        echo "<td>" . $row["Title"] . "</td></tr>";
+        echo "<td>" . $row["Company"] . "</td>";
+        echo "<td>" . $row["Title"] . "</td>";
+        echo "<td>" . $row["Location"] . "</td>";
+        echo "<td>" . $row["Deadline"] . "</td>";
+        echo "<td><button name='more' value='" . $row['ID'] . "' type='submit'>+</button></td></tr>";
     }
 }
-echo "</table>";
+echo "</table></form>";
 ?>
 
 <div>

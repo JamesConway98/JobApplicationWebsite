@@ -1,13 +1,30 @@
 <?php
 session_start();
-$_SESSION['key'] = $_GET["more"];
-$_SESSION['details'] = "";
 
 require 'connectdb.php';
-if (!isset($_GET["more"]) || $conn->connect_error) {
+
+$saved = false;
+
+if(isset($_POST["save"])){
+    if(!isset($_SESSION["sessionuserid"])){
+        header("Location: login.php");
+        die();
+    }
+    $saved = true;
+    $userid = $_SESSION['sessionuserid'];
+    $jobid = $_SESSION["key"];
+    $sql = "INSERT INTO `SavedJobs` (`UserID`, `JobID`, `SavedJobID`) VALUES ('$userid', '$jobid', NULL)";
+    $result =  $conn->query($sql);
+}
+
+if ((!isset($_GET["more"]) || $conn->connect_error) && !isset($_POST["savejob"])) {
     header("Location: joblistings.php");
     die();
 }
+
+$_SESSION['key'] = $_GET["more"];
+$_SESSION['details'] = "";
+
 $sql = 'SELECT * FROM `Job` LEFT OUTER JOIN Occupation occ ON Job.Occupation_ID = occ.ID LEFT OUTER JOIN `Type` typ ON `Job`.`Type_ID` = `typ`.`ID` WHERE ' . $_GET["more"] . '=`Job`.`ID`';
 $job = $conn->query($sql);
 if (isset($job->num_rows) && $job->num_rows > 0) {
@@ -61,10 +78,18 @@ if (isset($job)) {
         . '<tr><td>Type:</td><td>' . $job["Type"] . '</td></tr>'
         . '<tr><td colspan="2">'
         . '<button name="apply" type="submit" align="center" value="' . $_GET["more"] . '" ' . $disabled . '>Apply</button>'
-        . '</td></tr>'
+        . '</form>';
+
+        if(!$saved) {
+            echo '<form name = "savejob" method="post">'
+            . '<button name="save" type="submit" align="center" value="' . $_GET["more"] . '" ' . $disabled . '>Save Job</button>';
+        }
+
+        echo '</td></tr>'
         . '</table>'
         . '</form>';
     echo '</div>';
+
 } else {
     echo "<p>404 - Job not found.</p>";
 }
